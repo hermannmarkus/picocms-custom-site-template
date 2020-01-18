@@ -17,9 +17,12 @@ noroot touch "${PICO_PATH_TO_SITE}/log/apache-access.log"
 echo " * Creating public_html folder if it doesn't exist already"
 noroot mkdir -p "${PICO_PATH_TO_SITE}/public_html"
 
-echo " * Installing PicoCMS"
+PICO_INSTALL_PATH= "${PICO_PATH_TO_SITE}/public_html"
 
-composer create-project picocms/pico-composer "${PICO_PATH_TO_SITE}/public_html"
+if [ "$(ls -A $PICO_INSTALL_PATH)" ]; then
+  echo " * Installing PicoCMS"
+  noroot composer create-project picocms/pico-composer "${PICO_PATH_TO_SITE}/public_html"
+fi
 
 cd "${PICO_PATH_TO_SITE}/public_html"
 
