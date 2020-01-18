@@ -19,10 +19,11 @@ PICO_INSTALL_PATH="${PICO_PATH_TO_SITE}/public_html"
 echo " * Creating public_html folder if it doesn't exist already"
 noroot mkdir -p "${PICO_INSTALL_PATH}"
 
-
 if [ "$(ls -A $PICO_INSTALL_PATH)" ]; then
   echo " * Installing PicoCMS"
   noroot composer create-project picocms/pico-composer "${PICO_INSTALL_PATH}"
+else
+  echo " * Not installing PicoCMS"
 fi
 
 cd "${PICO_INSTALL_PATH}"
