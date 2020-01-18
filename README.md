@@ -1,1 +1,1 @@
-# picocms-custom-site-template
+# PicoCMS Custom site template
