@@ -20,10 +20,11 @@ echo " * Creating public_html folder if it doesn't exist already"
 noroot mkdir -p "${PICO_INSTALL_PATH}"
 
 if [ "$(ls -A $PICO_INSTALL_PATH)" ]; then
+  echo " * Install directory not empty"
+  echo " * Not installing PicoCMS"
+else
   echo " * Installing PicoCMS"
   noroot composer create-project picocms/pico-composer "${PICO_INSTALL_PATH}"
-else
-  echo " * Not installing PicoCMS"
 fi
 
 cd "${PICO_INSTALL_PATH}"
